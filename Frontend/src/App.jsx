@@ -1,11 +1,15 @@
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import LandingPage from "./Screens/Global/LandingPage"
 
 
 function App() {
-
   return (
     <>
-    <div className="App"> <h1>HELLO BHU</h1> </div>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </div>
     </>
   )
 }
