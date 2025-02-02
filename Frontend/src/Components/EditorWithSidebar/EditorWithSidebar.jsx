@@ -12,6 +12,8 @@ const EditorWithSidebar = ({
   onLeave,
   copyRoomId,
   copySuccess,
+  onRunCode,
+  output,
 }) => {
   return (
     <div className="flex h-screen">
@@ -55,8 +57,12 @@ const EditorWithSidebar = ({
         >
           Leave Room
         </button>
+        <button
+          onClick={onRunCode}
+          className="mt-4 bg-blue-500 hover:bg-blue-600 p-2 rounded w-full">Run code</button>
       </div>
 
+      <div className="flex-1 flex flex-col">
       <div className="flex-1">
         <Editor
           height="100%"
@@ -68,6 +74,18 @@ const EditorWithSidebar = ({
           options={{ minimap: { enabled: false }, fontSize: 14 }}
         />
       </div>
+      <div 
+        className="output-container p-4 mt-4 bg-black-800 text-white"
+        style={{
+          minHeight:`300px`,
+          maxHeight:`500px`,
+          overflowY:"auto"
+        }}>
+        <h4 className="text-lg font-bold mb-2">Output:</h4>
+        <pre className="whitespace-pre-wrap break-words">{output}</pre>
+        
+        </div>
+      </div>    
     </div>
   );
 };

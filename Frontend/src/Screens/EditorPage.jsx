@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import io from "socket.io-client";
 import JoinRoomForm from "../Components/JoinRoomForm/JoinRoomForm";
 import EditorWithSidebar from "../Components/EditorWithSidebar/EditorWithSidebar";
@@ -14,6 +15,7 @@ const EditorPage = () => {
   const [copySuccess, setCopySuccess] = useState("");
   const [users, setUsers] = useState([]);
   const [typing, setTyping] = useState("");
+  const [output,setOutput] = useState("")
 
   useEffect(() => {
     socket.on("userJoined", setUsers);
@@ -66,6 +68,27 @@ const EditorPage = () => {
     socket.emit("languageChange", { roomId, language: newLanguage });
   };
 
+
+  const handleRunCode = async () => {
+    try{
+      const response = await axios.post("http://localhost:5000/execute",{language,code});
+
+    if(response.data.output){
+      setOutput(response.data.output);
+      }
+    else{
+        setOutput(`Error: ${response.data.error}`);
+    }
+    }
+    catch(error){
+      if (error.response) {
+        setOutput(`Failed to run code: ${error.response.data.error}`);
+    } else {
+        setOutput(`Failed to run code: ${error.message}`);
+    }
+    }  
+    };
+
   return joined ? (
     <EditorWithSidebar
       roomId={roomId}
@@ -79,6 +102,8 @@ const EditorPage = () => {
       onLeave={leaveRoom}
       copyRoomId={copyRoomId}
       copySuccess={copySuccess}
+      onRunCode={handleRunCode}
+      output={output}
     />
   ) : (
     <JoinRoomForm onJoin={joinRoom} />
