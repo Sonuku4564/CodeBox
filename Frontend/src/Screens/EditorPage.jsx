@@ -16,7 +16,7 @@ const EditorPage = () => {
   const [users, setUsers] = useState([]);
   const [typing, setTyping] = useState("");
   const [output,setOutput] = useState("")
-
+  const [suggestion, setSuggestion] = useState("");
   useEffect(() => {
     socket.on("userJoined", setUsers);
     socket.on("codeUpdate", setCode);
@@ -89,6 +89,20 @@ const EditorPage = () => {
     }  
     };
 
+    const handleGenerateSuggestion = async () => {
+      try {
+        const response = await axios.post("http://localhost:5000/suggest", { code });
+        if (response.data.suggestion) {
+          setSuggestion(response.data.suggestion);
+        } else {
+          setSuggestion("No suggestion available.");
+        }
+      } catch (error) {
+        console.error("Error fetching suggestion:", error);
+        setSuggestion("Error generating suggestion.");
+      }
+    };
+
   return joined ? (
     <EditorWithSidebar
       roomId={roomId}
@@ -104,6 +118,8 @@ const EditorPage = () => {
       copySuccess={copySuccess}
       onRunCode={handleRunCode}
       output={output}
+      suggestion={suggestion}
+      onGenerateSuggestion={handleGenerateSuggestion}
     />
   ) : (
     <JoinRoomForm onJoin={joinRoom} />

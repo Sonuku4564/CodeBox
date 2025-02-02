@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-
+import { getCodeSuggestion } from "./geminiAPI.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +19,7 @@ const app = express();
 // Use middlewares
 app.use(cors()); // Enable CORS
 app.use(bodyParser.json()); // Parse JSON bodies
+app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -134,9 +135,21 @@ app.post("/execute", (req, res) => {
     }
 });
 
+
+//Gemini requests
+app.post("/suggest", async (req, res) => {
+    const { language,code } = req.body;
+    const prompt = `Suggest code completion for ${language}:\n\n${code}`;
+    const suggestion = await getCodeSuggestion(prompt);
+    res.json({ suggestion });
+});
+
+
+
 const port = process.env.PORT || 5000;
 
 server.listen(port, () => {
     console.log(`Server is working on port ${port}`);
 });
+
 
