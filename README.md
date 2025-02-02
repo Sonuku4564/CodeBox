@@ -55,19 +55,56 @@ Ensure you have installed the following
 
 ## Key Aspects
 
-**How it Works**
+**AI Features**
 
-1. Open CodeBox in your browser.
+1. **Code Completion:**
 
-2. Select a programming language.
+    Start typing and see intelligent suggestions
 
-3. Start writing code and get AI-powered suggestions.
+    Accept suggestions using Tab or Enter
+    
+    Get full function completions with documentation
 
-4. Collaborate with teammates in real time.
 
-5. Integrate APIs for additional functionalities.
+2. **Code Analysis:**
 
-6. Save and export your projects effortlessly.
+    Receive real-time code quality feedback
+
+    Get suggestions for performance improvements
+
+    See potential bug warnings before they occur
+
+
+3. **AI Assistant:**
+
+    Ask questions about your code in comments
+    
+    Request explanations of complex code
+    
+    Get suggestions for code optimization
+
+
+
+**Collaboration Features**
+
+1. **Creating/Joining Rooms:**
+
+    Click "Create or Join Room" on the homepage
+
+    Enter a room ID and your display name
+
+    Share the room ID with collaborators
+
+
+2. **Real-time Coding:**
+
+    See others' cursors and selections
+
+    Chat with team members
+    
+    Switch between programming languages
+    
+    Copy room ID for sharing
 
 #
 **Built With**
