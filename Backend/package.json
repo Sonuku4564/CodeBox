@@ -7,10 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon script.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
   }
 }
