@@ -123,15 +123,9 @@ Ensure you have installed the following
 3. Offline AI assistance.
 ## Screenshots
 
-![App Screenshots](https://drive.google.com/file/d/1GGkKvMxUZFFjpBCM1nLUPK_cdSJlIpiW/view?usp=sharing)
+<img src="./final codebox.jpg" alt="Final Codebox" width="600" height="600" />
 
-![App Screenshots](https://drive.google.com/file/d/1y8eqNhKTls0ze37eSzDV2X4i0Hs14uwF/view?usp=drive_link)
 
-![App Screenshots](https://drive.google.com/file/d/1-Y0BBRhsUL80GO4jx36jMyHHL6OnrwVk/view?usp=sharing)
-
-![App Screenshots](https://drive.google.com/file/d/1jA7tcCHKgPvTGKTLiZ2_CddZHJuNxiw0/view?usp=drive_link)
-
-![App Screenshots](https://drive.google.com/file/d/1dGOuSOL9MJH27Bygrx3nOdZL9Nf4jvea/view?usp=drive_link)
 
 
 
