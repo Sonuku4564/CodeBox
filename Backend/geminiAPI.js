@@ -2,7 +2,7 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-const GEMINI_API_KEY = "AIzaSyBwNRp8oG20SPec4lwtlmulZSVRsFP3FhQ";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export async function getCodeSuggestion(prompt) {
     try {
